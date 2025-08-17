@@ -1,0 +1,89 @@
+.carousel-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-window {
+  width: 100%;
+  max-width: 1100px;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-page {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  min-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .carousel-page {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  text-align: left;
+  margin-bottom: 1.8rem;
+}
+
+.card:hover {
+  transform: scale(1.03); /* slight zoom */
+}
+
+.card-logo {
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  color: #555;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.card-name {
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.card-role {
+  font-size: 14px;
+  margin: 0;
+}
+
+.card-role a {
+  text-decoration: none;
+  border-bottom: 1px dotted #555; 
+}
+
+.pagination {
+  display: flex;
+  margin-top: 3rem;
+  gap: 12px;
+}
+
+.bar {
+  height: 6px;
+  width: 32px;
+  border-radius: 4px;
+  background: #d1d5db; /* grey */
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.bar.active {
+  background: #ef4444; /* red */
+}
