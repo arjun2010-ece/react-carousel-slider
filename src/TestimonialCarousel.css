@@ -14,19 +14,14 @@
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  will-change: transform;
 }
 
-.carousel-page {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
-  min-width: 100%;
-}
-
-@media (min-width: 768px) {
-  .carousel-page {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Exact-width slide cells so translation never shows half cards */
+.slide {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  padding: 10px; /* spacing between cards without breaking width */
 }
 
 .card {
@@ -37,10 +32,11 @@
   transition: transform 0.3s ease;
   text-align: left;
   margin-bottom: 1.8rem;
+  transform-origin: center center;
 }
 
 .card:hover {
-  transform: scale(1.03); /* slight zoom */
+  transform: scale(1.03);
 }
 
 .card-logo {
@@ -57,16 +53,18 @@
 .card-name {
   font-weight: bold;
   margin-bottom: 0px;
+  color: black;
 }
 
 .card-role {
   font-size: 14px;
   margin: 0;
+  color: black;
 }
 
 .card-role a {
   text-decoration: none;
-  border-bottom: 1px dotted #555; 
+  border-bottom: 1px dotted #555;
 }
 
 .pagination {
@@ -79,11 +77,11 @@
   height: 6px;
   width: 32px;
   border-radius: 4px;
-  background: #d1d5db; /* grey */
+  background: #d1d5db;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .bar.active {
-  background: #ef4444; /* red */
+  background: #ef4444;
 }
