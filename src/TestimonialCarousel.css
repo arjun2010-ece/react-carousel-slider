@@ -1,13 +1,12 @@
 .carousel-container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
 }
 
 .carousel-window {
   width: 100%;
-  max-width: 1100px;
   overflow: hidden;
 }
 
@@ -15,32 +14,35 @@
   display: flex;
   transition: transform 0.5s ease-in-out;
   will-change: transform;
+  gap: 1.25rem;
 }
 
-/* Exact-width slide cells so translation never shows half cards */
 .slide {
   flex: 0 0 auto;
+  min-width: 0;
   box-sizing: border-box;
-  padding: 10px; /* spacing between cards without breaking width */
 }
 
 .card {
   background: white;
   border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
   transition: transform 0.3s ease;
   text-align: left;
-  margin-bottom: 1.8rem;
+  margin: 10px 0;
   transform-origin: center center;
 }
 
 .card:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .card-logo {
   height: 40px;
+  max-width: 100%;
   margin-bottom: 15px;
 }
 
@@ -48,40 +50,45 @@
   color: #555;
   font-style: italic;
   margin-bottom: 15px;
+  overflow-wrap: anywhere;
 }
 
 .card-name {
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 0px;
-  color: black;
+  margin-bottom: 5px;
 }
 
 .card-role {
   font-size: 14px;
+  color: #888;
   margin: 0;
-  color: black;
 }
 
 .card-role a {
   text-decoration: none;
-  border-bottom: 1px dotted #555;
+  color: #0057a9;
+  border-bottom: 1px dotted #0057a9;
 }
 
-.pagination {
+.carousel-pagination {
   display: flex;
-  margin-top: 3rem;
-  gap: 12px;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 15px;
 }
 
-.bar {
-  height: 6px;
-  width: 32px;
-  border-radius: 4px;
-  background: #d1d5db;
+.dot {
+  height: 8px;
+  width: 24px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.bar.active {
-  background: #ef4444;
+.dot.active {
+  background-color: #0057a9;
 }
